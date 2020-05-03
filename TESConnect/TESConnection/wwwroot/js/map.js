@@ -6,16 +6,13 @@ var layer;
 var layerID = 'my-custom-layer';
 
 window.initMap = function () {
-    // Select the element with id="map".
     mapEl = document.querySelector('#map');
 
-    // Create a new map.
     map = new google.maps.Map(mapEl, {
         center: new google.maps.LatLng(10, 50),
         zoom: 4
     });
 
-    // Create a tile layer, configured to fetch tiles from TILE_URL.
     layer = new google.maps.ImageMapType({
         name: layerID,
         getTileUrl: function (coord, zoom) {
@@ -31,7 +28,6 @@ window.initMap = function () {
         maxZoom: 6
     });
 
-    // Apply the new tile layer to the map.
     map.mapTypes.set(layerID, layer);
     map.setMapTypeId(layerID);
 };
